@@ -27,7 +27,7 @@ const Form = () => {
     date: DateFormat(new Date()),
   };
   const [formData, setFormData] = useState(initialData);
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
 
   const { addTransaction } = useContext(ExpenseTrackerContext);
 
@@ -38,9 +38,9 @@ const Form = () => {
 
   const createTransationHandler = (e) => {
     e.preventDefault();
-    if(formData.amount.length===0){
-        setError(true)
-        return;
+    if (formData.amount.length === 0) {
+      setError(true);
+      return;
     }
     const transaction = {
       ...formData,
@@ -52,9 +52,8 @@ const Form = () => {
     setFormData(initialData);
   };
 
-  const errorText = <p className={classes.error}>feild cannot be empty</p>
+  const errorText = <p className={classes.error}>feild cannot be empty</p>;
   return (
-    
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <Typography align="center" variant="subtitle2" gutterBottom>
@@ -63,10 +62,10 @@ const Form = () => {
       </Grid>
       <Grid item xs={6}>
         <FormControl fullWidth required="true">
-          <InputLabel >Type</InputLabel>
+          <InputLabel>Type</InputLabel>
           <Select
             value={formData.type}
-            onChange={(e) => setFormData({ ...formData, type: e.target.value })} 
+            onChange={(e) => setFormData({ ...formData, type: e.target.value })}
           >
             <MenuItem value="Income">Income</MenuItem>
             <MenuItem value="Expense">Expense</MenuItem>
@@ -89,7 +88,6 @@ const Form = () => {
             ))}
           </Select>
         </FormControl>
-        
       </Grid>
       <Grid item xs={6}>
         <TextField
@@ -109,9 +107,7 @@ const Form = () => {
           fullWidth
           style={{ marginTop: "16px" }}
           value={formData.date}
-          onChange={(e) =>
-            setFormData({ ...formData, date: e.target.value })
-          }
+          onChange={(e) => setFormData({ ...formData, date: e.target.value })}
         />
       </Grid>
 

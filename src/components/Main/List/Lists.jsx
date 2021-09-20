@@ -31,10 +31,7 @@ const List = () => {
             <ListItemAvatar>
               <Avatar
                 className={
-                  (transaction.type === "Income"
-                    ? classes.avatarIncome
-                    : classes.avatarExpense)
-                }
+                  (transaction.type === "Expense" ? classes.avatarExpense : classes.avatarIncome)}
               >
                 <MoneyOff />
               </Avatar>
